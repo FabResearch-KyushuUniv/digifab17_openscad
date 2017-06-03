@@ -1,1 +1,1 @@
-pandoc -o index.html -t revealjs -s index.md theme=solarized
+pandoc -o index.html -t revealjs -s -V theme=solarized  index.md 
