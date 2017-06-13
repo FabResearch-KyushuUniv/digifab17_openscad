@@ -9,7 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme">
+  <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+  <link rel="stylesheet" href="css/matsuura.css"/>
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement( 'link' );
@@ -27,14 +28,79 @@
     <div class="slides">
 
 
-<section id="デジタルファブリケーション" class="slide level1">
-<h1>デジタル・ファブリケーション</h1>
+<section id="digital-fabrication" class="slide level1">
+<h1>Digital fabrication</h1>
 <p>2017 3D講義スライド</p>
 <p>松浦知也</p>
 </section>
 <section class="slide level1">
 
-<p>3Dモデリング</p>
+<h2 id="今回の最終目標">今回の最終目標</h2>
+<ul>
+<li>2Dの時:イラレなどでは作りにくい図形をプログラミングで作る</li>
+<li>今回:<strong>普通の3Dモデリングでは作りにくい3Dオブジェクトを作る</strong></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="dのデータ構造">3Dのデータ構造</h2>
+<table>
+<thead>
+<tr class="header">
+<th>データの種類</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ポイントクラウド</td>
+<td>点の集まり</td>
+</tr>
+<tr class="even">
+<td>ワイヤーフレーム</td>
+<td>ポイントクラウド+頂点同士のつながり</td>
+</tr>
+<tr class="odd">
+<td>サーフェス</td>
+<td>ワイヤーフレーム+どこに面が張られているか</td>
+</tr>
+<tr class="even">
+<td>ソリッド</td>
+<td>サーフェース+どこの面で閉じた空間が充填されているか</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>最終的に体積を持っていないと3Dプリンタなどで出力できない</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="dプログラミング">3D+プログラミング</h2>
+<ul>
+<li>これらのデータを直に扱うのも不可能ではないが、大変</li>
+<li>そこでProcessingの時と同様、<strong>単純な3Dオブジェクトを組み合わせる</strong></li>
+<li>加えて3Dでは、<strong>単純な2D図形を押し出して3Dにする</strong>事もできる</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="./img/primitives.png" alt="青:sphere 赤:cube 緑:cylinder" /><figcaption>青:sphere 赤:cube 緑:cylinder</figcaption>
+</figure>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="./img/extrusion.png" alt="全てsquareを押し出している。拡大縮小、回転しながら押し出すことで様々な形状が作れる" /><figcaption>全てsquareを押し出している。拡大縮小、回転しながら押し出すことで様々な形状が作れる</figcaption>
+</figure>
+</section>
+<section class="slide level1">
+
+<h2 id="例">例</h2>
+<figure>
+<img src="./img/scadsample.png" alt="squareを回転押し出し+ランダム位置にcylinderを配置して引き算" /><figcaption>squareを回転押し出し+ランダム位置にcylinderを配置して引き算</figcaption>
+</figure>
 </section>
     </div>
   </div>
