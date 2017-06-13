@@ -1,0 +1,81 @@
+digraph g{
+  graph[
+  label="OpenSCADフローチャート",
+  layout = dot,
+  charset = "UTF-8",
+   labelloc = "t",
+   labeljust = "c",
+   bgcolor = "#ffffff",
+   fontcolor = black,
+   fontsize = 18,
+   style = "filled",
+   rankdir = "LR",
+   margin = 0.2,
+   fontname = "Hiragino Kaku Gothic",
+  compound = true
+  ];
+
+  node [
+     style = "solid,filled",
+     fontsize = 16,
+     fontname = "Hiragino Kaku Gothic",
+     height = 0.6,
+     width = 1.2,
+     shape=box,
+     fillcolor="/blues5/1"
+   ];
+
+  subgraph cluster1{
+  margin = 0.2;
+  label= "2D図形生成";
+  bgcolor="/blues5/1";
+  node[fillcolor="/blues5/2"];
+
+    "square";
+    "circle";
+    "polygon";
+    "text"
+  };
+  subgraph cluster2{
+  margin = 0.2;
+  bgcolor="/blues5/1";
+  node[fillcolor="/blues5/2"];
+  label="3D基本オブジェクト";
+  "cube";
+  "sphere";
+  "cylinder";
+  "polygon(3D)";
+  }
+  subgraph cluster3{
+  margin = 0.2;
+  bgcolor="/blues5/1";
+  node[fillcolor="/blues5/2"];
+  label="押出し";
+  "linear_extrude";
+  "rotate_extrude";
+  }
+
+  subgraph cluster4{
+  margin = 0.2;
+  bgcolor="/blues5/1";
+  node[fillcolor="/blues5/2"];
+  label="2D変形";
+  "offset";
+  "hull";
+  "minkowski"
+  }
+  subgraph cluster5{
+  margin = 0.2;
+  bgcolor="/blues5/1";
+  node[fillcolor="/blues5/2"];
+label="論理演算（組み合わせ)";
+union;
+difference;
+intersection;
+}
+circle -> linear_extrude[ltail=cluster1, lhead=cluster3];
+polygon -> hull[lhead=cluster4,ltail=cluster1];
+hull -> linear_extrude[ltail=cluster4, lhead=cluster3];
+  sphere-> intersection[lhead=cluster5,ltail=cluster2];
+  linear_extrude -> union[lhead=cluster5,ltail=cluster3];
+}
