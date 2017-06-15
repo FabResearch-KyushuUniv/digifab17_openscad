@@ -70,6 +70,247 @@
 
 ---
 
+## サンプル1
+
+```java
+//tutorial1.scad
+//Processing同様スラッシュ*2以降はコメントアウト（無効）
+
+// 真ん中に箱を置く
+cube(10); //単位はmm
+```
+
+---
+
+### 結果
+
+![](./img/scad1.png)
+
+---
+
+```java
+// 真ん中に箱を置く
+cube(10); //単位はmm
+
+//移動させる
+translate([30,20,0]){//中括弧は省略できるが見にくくなる
+    //幅、奥行き、高さを別々にする、中心に配置する
+    cube([10,20,30],center=true);
+}
+
+//移動してから軸の周りに回転させる。
+rotate([40,45,70]){
+    translate([30,20,0]){
+     cube([10,20,30],center=true);   
+    }
+}
+
+//回転してから平行移動させる
+translate([30,20,0]){
+    rotate([40,45,70]){
+    cube([10,20,30],center=true);   
+    }
+}
+```
+
+---
+
+### 結果
+
+![](./img/scad2.png)
+
+---
+
+## サンプル2
+
+```java
+//tutorial_3d_primitives.scad
+union(){//2つ以上のオブジェクトを合体
+    cube(10,center=true);
+    translate([0,0,7.5]){
+    sphere(10); //半径で指定。d＝にすると直径にも出来る
+}
+    translate([0,0,7.5*2]){
+    cylinder(10,5,7); //高さ 、始まり半径、終わり半径
+}
+    translate([0,0,30]){
+    sphere(7.5,$fn=100); //$fnでメッシュの粗さを変えられる。
+  }
+  
+  }
+
+
+```
+
+---
+
+## 結果
+
+![](./img/tutorial2.png)
+
+---
+
+## サンプル3 組み合わせ
+
+```java
+module cylinder1(){
+        rotate([45,45,45]){
+        cylinder(10,5,5);
+        }
+    }
+module cylinder2(){
+         translate([2.5,5,2.5]){ 
+        rotate([30,30,30]){
+        cylinder(10,5,5);
+        }
+    }
+}
+union(){ // 合体(論理和) 実は書かなくても自動的にやってくれている
+    cylinder1();
+    cylinder2();
+    }
+
+translate([20,0,0]){ 
+    intersection(){ //共通部分（論理積）
+        cylinder1();
+        cylinder2();
+        }      
+}
+
+translate([40,0,0]){ 
+    difference(){ //引き算
+        cylinder1();
+        cylinder2();
+    }
+}
+
+translate([60,0,0]){ 
+    difference(){ //differenceは呼び出す順番に依って結果が変わる
+        cylinder2();
+        cylinder1();
+
+    }
+}
+```
+
+---
+
+## 結果
+
+![](./img/tutorial3.png)
+
+---
+
+## サンプル4 2D図形
+
+```java
+//2D primitives
+square([10,20]);
+
+translate([20,0,0]){
+circle(10);
+}
+
+translate([40,0,0]){
+circle(10,$fn=100);//球と同じくメッシュの細かさが指定できる
+}
+
+translate([60,0,0]){
+text("A",20);//残念ながら日本語は無理
+}
+
+translate([80,0,0]){
+polygon([[10,0],[20,40],[40,25],[80,10],[30,-20]]);   
+}
+```
+
+---
+
+## 結果
+
+![](./img/tutorial4.png)
+
+---
+
+## サンプル5 直線押出し
+
+```java
+module my2d(){
+    difference(){ //booleanは2D同士にも使える
+     square([10,20],center=true);
+        translate([2,0,0]){
+         circle(4);
+        }
+        }   
+    }
+    
+    linear_extrude(10){ //1つだけなら高さの指定
+        my2d();
+    }
+translate([20,0,0]){
+     linear_extrude(10,scale=0.5){ //押し出しながら拡大縮小
+        my2d();
+    }
+}
+translate([40,0,0]){
+     linear_extrude(10,scale=0.5,twist=90){ //押し出しながら回転
+        my2d();
+    }
+}
+translate([60,0,0]){
+     linear_extrude(10,scale=0.5,twist=180,$fn=100){ //ここでも粗さの指定が出来る
+         my2d();
+    }
+}
+
+```
+
+---
+
+## 結果
+
+![](./img/tutorial5.png)
+
+---
+
+## サンプル6 回転押し出し
+
+```java
+module my2d(){
+    translate([10,0,0]){
+    difference(){ 
+     square([10,20],center=true);
+        translate([2,0,0]){
+         circle(4);
+        }
+        }
+    }
+    } 
+    
+my2d();
+
+translate([40,0,0]){    
+rotate_extrude(){ //x軸回りに90度傾けてから、ｚ軸回りに360度押し出しながら回す
+    my2d();
+    }
+    
+}
+ translate([80,0,0]){    
+rotate_extrude($fn=100){
+    my2d();
+    }
+    
+}
+```
+
+---
+
+## 結果
+
+![](./tutorial6.png)
+
+---
+
 ## とりあえず困ったら
 
 <http://www.openscad.org/cheatsheet/index.html>
@@ -86,5 +327,5 @@
 
 [OpenSCAD で『けん玉』作ってみた – 『たま』編（初心者向けのチュートリアルに使ってね）](http://picworld.jp/2016/12/21/openscad-%E3%81%A7%E3%80%8E%E3%81%91%E3%82%93%E7%8E%89%E3%80%8D%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F-%E3%80%8E%E3%81%9F%E3%81%BE%E3%80%8F%E7%B7%A8%EF%BC%88%E5%88%9D%E5%BF%83%E8%80%85/)
 
----
+
 
