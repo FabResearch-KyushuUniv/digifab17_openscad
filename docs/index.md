@@ -314,6 +314,22 @@ rotate_extrude($fn=100){
 
 ---
 
+## 出力
+
+まずRender（砂時計マーク）する
+
+![](./img/render.png)
+
+---
+
+## 出力
+
+その後ExportでSTLファイルに出力
+
+![](./img/export.png)
+
+---
+
 ## とりあえず困ったら
 
 <http://www.openscad.org/cheatsheet/index.html>
