@@ -68,14 +68,26 @@ digraph g{
   margin = 0.2;
   bgcolor="/blues5/1";
   node[fillcolor="/blues5/2"];
-label="論理演算（組み合わせ)";
+label="論理演算（3D組み合わせ)";
 union;
 difference;
 intersection;
 }
+subgraph cluster6{
+margin = 0.2;
+bgcolor="/blues5/1";
+node[fillcolor="/blues5/2"];
+label="論理演算（2D組み合わせ)";
+"union(2D)";
+"difference(2D)";
+"intersection(2D)";
+}
 circle -> linear_extrude[ltail=cluster1, lhead=cluster3];
 polygon -> hull[lhead=cluster4,ltail=cluster1];
-hull -> linear_extrude[ltail=cluster4, lhead=cluster3];
+hull ->linear_extrude[ltail=cluster4, lhead=cluster3];
+hull ->"difference(2D)"[ltail=cluster4, lhead=cluster6];
+"difference(2D)" ->linear_extrude[ltail=cluster6, lhead=cluster3];
+
   sphere-> intersection[lhead=cluster5,ltail=cluster2];
   linear_extrude -> union[lhead=cluster5,ltail=cluster3];
 }
