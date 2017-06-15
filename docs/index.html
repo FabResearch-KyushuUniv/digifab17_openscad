@@ -233,7 +233,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level1">
 
 <h2 id="サンプル3-組み合わせ">サンプル3 組み合わせ</h2>
-<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">module <span class="fu">cylinder1</span>(){
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="co">//tutorial3_boolean.scad</span>
+module <span class="fu">cylinder1</span>(){
         <span class="fu">rotate</span>([<span class="dv">45</span>,<span class="dv">45</span>,<span class="dv">45</span>]){
         <span class="fu">cylinder</span>(<span class="dv">10</span>,<span class="dv">5</span>,<span class="dv">5</span>);
         }
@@ -282,7 +283,7 @@ module <span class="fu">cylinder2</span>(){
 <section class="slide level1">
 
 <h2 id="サンプル4-2d図形">サンプル4 2D図形</h2>
-<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="co">//2D primitives</span>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="co">//tutorial4_2d_primitives.scad</span>
 <span class="fu">square</span>([<span class="dv">10</span>,<span class="dv">20</span>]);
 
 <span class="fu">translate</span>([<span class="dv">20</span>,<span class="dv">0</span>,<span class="dv">0</span>]){
@@ -311,7 +312,8 @@ module <span class="fu">cylinder2</span>(){
 <section class="slide level1">
 
 <h2 id="サンプル5-直線押出し">サンプル5 直線押出し</h2>
-<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">module <span class="fu">my2d</span>(){
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="co">//tutorial5_linear_extrude.scad</span>
+module <span class="fu">my2d</span>(){
     <span class="fu">difference</span>(){ <span class="co">//booleanは2D同士にも使える</span>
      <span class="fu">square</span>([<span class="dv">10</span>,<span class="dv">20</span>],center=<span class="kw">true</span>);
         <span class="fu">translate</span>([<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">0</span>]){
@@ -349,7 +351,8 @@ module <span class="fu">cylinder2</span>(){
 <section class="slide level1">
 
 <h2 id="サンプル6-回転押し出し">サンプル6 回転押し出し</h2>
-<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">module <span class="fu">my2d</span>(){
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="co">//tutorial6_rotate_extrude.scad</span>
+module <span class="fu">my2d</span>(){
     <span class="fu">translate</span>([<span class="dv">10</span>,<span class="dv">0</span>,<span class="dv">0</span>]){
     <span class="fu">difference</span>(){ 
      <span class="fu">square</span>([<span class="dv">10</span>,<span class="dv">20</span>],center=<span class="kw">true</span>);
@@ -379,7 +382,7 @@ module <span class="fu">cylinder2</span>(){
 
 <h2 id="結果-6">結果</h2>
 <figure>
-<img src="./tutorial6.png" />
+<img src="./img/tutorial6.png" />
 </figure>
 </section>
 <section class="slide level1">
