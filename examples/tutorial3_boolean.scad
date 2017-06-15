@@ -1,4 +1,4 @@
-module cylinder1(){//幾つかの処理をまとめるにはmoduleを使います
+module cylinder1(){//幾つかの処理をまとめるにはfunctionではなくmoduleを使います
         rotate([45,45,45]){
             cylinder(10,5,5);
         }
