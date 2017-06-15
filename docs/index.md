@@ -154,7 +154,7 @@ union(){//2つ以上のオブジェクトを合体
 
 ```java
 //tutorial3_boolean.scad
-module cylinder1(){
+module cylinder1(){//幾つかの処理をまとめるにはmoduleを使います
         rotate([45,45,45]){
         cylinder(10,5,5);
         }
@@ -311,6 +311,33 @@ rotate_extrude($fn=100){
 ## 結果
 
 ![](./img/tutorial6.png)
+
+---
+
+## サンプル7 繰り返し
+
+```java
+numcubes = 32; //定数の定義はいきなり名前を宣言してOK
+difference(){
+    sphere(40,$fn=55); //中心に大きな球を作って、キューブを引き算
+   for(i=[1:numcubes]){ //Processingと書き方が違うので注意、この場合1から32まで
+        rotate([0,i*180/numcubes-90,i*2*360/numcubes]){
+        translate([45,0,0]){
+        rotate([45*i,45*i,45]){
+        cube(30,center=true); // 箱を回転して、平行移動して、また回転
+                    }       
+                }
+             }
+        }
+}
+```
+
+---
+
+## 結果
+
+![](./img/tutorial7.png)
+
 
 ---
 
