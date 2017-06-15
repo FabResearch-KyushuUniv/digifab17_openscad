@@ -334,6 +334,38 @@ difference(){
 
 ---
 
+## その他便利情報
+
+```java
+//rands(min,max,length)
+//一つの乱数が欲しい場合はこう（配列で返ってくるので取り出してあげないといけない）
+rands(-20,20,1)[0]
+
+//3次元空間をランダムに移動させる
+translate(rands(-20,20,3)){
+//cubeなど
+}
+
+//intersection_for(){}
+//ループ内で書いたオブジェクト全ての共通部分を取る（example3.scad参照）
+intersection_for(i=[1:10]){
+//cubeなど
+}
+
+//hull(){}
+//{}内の2D図形を輪ゴムで外側をくくったような2D図形を出す
+
+hull(){
+translate([10,10]){
+square(10);
+}
+text("a",10);
+}
+
+```
+
+---
+
 ## 結果
 
 ![](./img/tutorial7.png)
