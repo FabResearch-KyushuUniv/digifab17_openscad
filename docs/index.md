@@ -153,6 +153,7 @@ union(){//2つ以上のオブジェクトを合体
 ## サンプル3 組み合わせ
 
 ```java
+//tutorial3_boolean.scad
 module cylinder1(){
         rotate([45,45,45]){
         cylinder(10,5,5);
@@ -204,7 +205,7 @@ translate([60,0,0]){
 ## サンプル4 2D図形
 
 ```java
-//2D primitives
+//tutorial4_2d_primitives.scad
 square([10,20]);
 
 translate([20,0,0]){
@@ -235,6 +236,7 @@ polygon([[10,0],[20,40],[40,25],[80,10],[30,-20]]);
 ## サンプル5 直線押出し
 
 ```java
+//tutorial5_linear_extrude.scad
 module my2d(){
     difference(){ //booleanは2D同士にも使える
      square([10,20],center=true);
@@ -276,6 +278,7 @@ translate([60,0,0]){
 ## サンプル6 回転押し出し
 
 ```java
+//tutorial6_rotate_extrude.scad
 module my2d(){
     translate([10,0,0]){
     difference(){ 
@@ -307,7 +310,7 @@ rotate_extrude($fn=100){
 
 ## 結果
 
-![](./tutorial6.png)
+![](./img/tutorial6.png)
 
 ---
 
