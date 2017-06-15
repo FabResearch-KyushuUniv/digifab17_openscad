@@ -234,7 +234,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h2 id="サンプル3-組み合わせ">サンプル3 組み合わせ</h2>
 <div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="co">//tutorial3_boolean.scad</span>
-module <span class="fu">cylinder1</span>(){
+module <span class="fu">cylinder1</span>(){<span class="co">//幾つかの処理をまとめるにはmoduleを使います</span>
         <span class="fu">rotate</span>([<span class="dv">45</span>,<span class="dv">45</span>,<span class="dv">45</span>]){
         <span class="fu">cylinder</span>(<span class="dv">10</span>,<span class="dv">5</span>,<span class="dv">5</span>);
         }
@@ -383,6 +383,30 @@ module <span class="fu">my2d</span>(){
 <h2 id="結果-6">結果</h2>
 <figure>
 <img src="./img/tutorial6.png" />
+</figure>
+</section>
+<section class="slide level1">
+
+<h2 id="サンプル7-繰り返し">サンプル7 繰り返し</h2>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">numcubes = <span class="dv">32</span>; <span class="co">//定数の定義はいきなり名前を宣言してOK</span>
+<span class="fu">difference</span>(){
+    <span class="fu">sphere</span>(<span class="dv">40</span>,$fn=<span class="dv">55</span>); <span class="co">//中心に大きな球を作って、キューブを引き算</span>
+   <span class="kw">for</span>(i=[<span class="dv">1</span>:numcubes]){ <span class="co">//Processingと書き方が違うので注意、この場合1から32まで</span>
+        <span class="fu">rotate</span>([<span class="dv">0</span>,i*<span class="dv">180</span>/numcubes<span class="dv">-90</span>,i*<span class="dv">2</span>*<span class="dv">360</span>/numcubes]){
+        <span class="fu">translate</span>([<span class="dv">45</span>,<span class="dv">0</span>,<span class="dv">0</span>]){
+        <span class="fu">rotate</span>([<span class="dv">45</span>*i,<span class="dv">45</span>*i,<span class="dv">45</span>]){
+        <span class="fu">cube</span>(<span class="dv">30</span>,center=<span class="kw">true</span>); <span class="co">// 箱を回転して、平行移動して、また回転</span>
+                    }       
+                }
+             }
+        }
+}</code></pre></div>
+</section>
+<section class="slide level1">
+
+<h2 id="結果-7">結果</h2>
+<figure>
+<img src="./img/tutorial7.png" />
 </figure>
 </section>
 <section class="slide level1">
