@@ -83,7 +83,8 @@ label="論理演算（2D組み合わせ)";
 "intersection(2D)";
 }
 circle -> linear_extrude[ltail=cluster1, lhead=cluster3];
-polygon -> hull[lhead=cluster4,ltail=cluster1];
+circle -> "difference(2D)"[ltail=cluster1,lhead=cluster6];
+circle -> hull[lhead=cluster4,ltail=cluster1];
 hull ->linear_extrude[ltail=cluster4, lhead=cluster3];
 hull ->"difference(2D)"[ltail=cluster4, lhead=cluster6];
 "difference(2D)" ->linear_extrude[ltail=cluster6, lhead=cluster3];

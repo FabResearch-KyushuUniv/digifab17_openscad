@@ -6,7 +6,7 @@ cylinder(7,1,1);
 
 }
 }
-translate([0,20,19]){
+translate([0,22,19]){
 rotate([90,0,0]){
 cylinder(7,1,1);
 }
@@ -23,12 +23,8 @@ cylinder(7,1,1);
 }
 }
 
-difference(){
-translate([-22,-22,0]){cube([44,44,36]); 
-}
-translate([-20,-20,-20]){cube([40,40,90]); 
-}
-}
+
+
 
 translate([-18,-18,0]){
  union(){
