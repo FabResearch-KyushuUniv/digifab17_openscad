@@ -9,7 +9,7 @@
 
 ## ディレクトリ
 
-- docs...講義スライド用のフォルダ。index.htmlをブラウザで開くと同じスライドが見られます。
+- docs...講義スライド用のフォルダです。index.htmlがスライドのファイルですが、ローカルで開くとスライド形式にならないので注意して下さい。（Gitが分かる人向け：git clone --recursiveでクローンするか、クローン後にgit submodule init&&git submodule updateすると、index.htmlもスライド形式で見られます。）
 - example...スライドの中に使われているサンプルのscadファイルです。
 
 
