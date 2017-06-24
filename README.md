@@ -1,7 +1,7 @@
 # digifab17_openscad
 九州大学芸術工学部集中講義「デジタルファブリケーション」2017年　3D講義用リポジトリ
 
-講義用スライド
+講義用スライドURL
 
 <https://fabresearch-kyushuuniv.github.io/digifab17_openscad/>
 
@@ -22,4 +22,3 @@ Matsuura Tomoya
 matsuura.nonymous[at]gmail.com
 
 <https://matsuuratomoya.com>
-
